@@ -6,7 +6,7 @@ function toggleLiveBirths() {
     if (priorPregnancies && priorPregnancies.value === "0") {
         liveBirthsGroup.style.display = "none";
         liveBirthsOptions.forEach(option => {
-            option.checked = false; // Deselect all live births options
+            option.checked = false;
         });
     } else {
         liveBirthsGroup.style.display = "block";
@@ -17,7 +17,7 @@ function toggleLiveBirths() {
         if (priorPregnancies.value === "1") {
             liveBirthsOptions.forEach(option => {
                 if (option.value === "2+") {
-                    option.disabled = true; // Disable invalid option
+                    option.disabled = true;
                 }
             });
         }
@@ -88,7 +88,7 @@ function calculate() {
 
 function clearErrors() {
     document.querySelectorAll('.error-message').forEach((el) => {
-        el.innerText = ''; // Clear error message text
+        el.innerText = ''; 
     });
 }
 
