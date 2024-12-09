@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVF Success Estimator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<h1>IVF Success Estimator</h1>
+
+<form id="ivf-form">
+    <div class="error-container" id="error-container"></div>
+
+    <label>
+        <input type="checkbox" name="usingOwnEggs">
+        I am using my own eggs
+    </label>
+
+    <label>
+        <input type="checkbox" name="attemptedIVFPreviously">
+        I previously attempted IVF
+    </label>
+    <label>
+        <input type="checkbox" name="reasonForInfertilityKnown" id="reasonKnownCheckbox" onchange="toggleReasonsForInfertility()">
+        I know the reason for my infertility
+    </label>
+
+    <div class="group">
+        <label>Age (20-50):</label>
+        <input type="number" name="age" min="20" max="50" id="age">
+        <div id="age-error" class="error-message"></div>
+    </div>
+
+    <div class="group">
+        <label>Weight (80-300lbs):</label>
+        <input type="number" name="weight" min="80" max="300" id="weight">
+        <div id="weight-error" class="error-message"></div>
+        <label>Height:</label>
+        <input type="number" name="heightFeet" placeholder="Feet" id="heightFeet">
+        <input type="number" name="heightInches" placeholder="Inches" id="heightInches">
+        <div id="heightFeet-error" class="error-message"></div>
+        <div id="heightInches-error" class="error-message"></div>
+    </div>
+
+    <div class="group">
+        <label>Number of Prior Pregnancies:</label>
+        <input type="radio" name="priorPregnancies" value="0" onclick="toggleLiveBirths()"> 0
+        <input type="radio" name="priorPregnancies" value="1" onclick="toggleLiveBirths()"> 1
+        <input type="radio" name="priorPregnancies" value="2+" onclick="toggleLiveBirths()"> 2+
+    </div>
+
+    <div class="group" id="liveBirthsGroup">
+        <label>Number of Live Births:</label>
+        <input type="radio" name="priorLiveBirths" value="0"> 0
+        <input type="radio" name="priorLiveBirths" value="1"> 1
+        <input type="radio" name="priorLiveBirths" value="2+"> 2+
+    </div>
+
+    <div class="group reasons-group" id="reasonsForInfertility">
+        <label>Reasons for Infertility:</label>
+        <label><input type="checkbox" name="tubalFactor" class="group-a"> Tubal Factor</label>
+        <label><input type="checkbox" name="maleFactorInfertility" class="group-a"> Male Infertility</label>
+        <label><input type="checkbox" name="endometriosis" class="group-a"> Endometriosis</label>
+        <label><input type="checkbox" name="ovulatoryDisorder" class="group-a"> Ovulatory Disorder (including PCOS)</label>
+        <label><input type="checkbox" name="diminishedOvarianReserve" class="group-a"> Diminished Ovarian Reserve</label>
+        <label><input type="checkbox" name="uterineFactor" class="group-a"> Uterine Factor</label>
+        <label><input type="checkbox" name="otherReason" class="group-a"> Other Reason</label>
+
+        <label class="or-label">Or</label>
+        <label><input type="checkbox" name="unexplainedInfertility" class="group-b"> Unexplained Infertility</label>
+    </div>
+
+    <button type="button" onclick="calculate()">Calculate</button>
+</form>
+
+<div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+<script src="index.js"></script>
+</body>
+</html>
